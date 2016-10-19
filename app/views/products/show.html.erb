@@ -1,0 +1,19 @@
+Name: <%= @product.p_name %><br>
+Description: <%= @product.description %><br>
+Price: <%= @product.pricing %><br>
+Category: <%= @product.c_name %><br><br>
+
+<a href="/products/<%= @product.id %>/edit">Edit</a>
+<a href="/products/">Back</a>
+
+Comment: 
+
+<form action="/comments" method = "POST">
+	<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+	<input type="hidden" name="comment[product_id]" value="<%=@product.id%>">
+	<input id="Comment" type="text" name="comment[comment]">
+	<input type="submit" name="submit" value="Submit">
+</form>
+<% @comments.each do |c| %>
+	<p><%= c.comment %></p>
+<% end %>

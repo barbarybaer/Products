@@ -1,0 +1,17 @@
+<h1>Listing products</h1><br><br>
+<table>
+	<tr><th>Name</th><th>Description</th><th>Price</th><th>Category</th></tr>
+	<% @products.each do |p|%>
+		<tr>
+			<td id="Name"><%= p.p_name %></td>
+			<td><%= p.description%></td>
+			<td><%= p.pricing%></td>
+			<td><%= p.c_name%></td>
+			<td><a href ="/products/<%= p.id%>">Show</a></td>
+			<td><a href ="/products/<%= p.id%>/edit/">Edit</a></td>
+			<td><a href ="/products/<%= p.id%>" data-method="delete">Destroy</a></td>
+		</tr>
+	<% end %>
+</table>
+<a href="/products/new">New Product</a>
+

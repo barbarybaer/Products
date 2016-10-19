@@ -1,0 +1,3 @@
+rails g model Comment comment:text product_id:integer
+rails g migration AddCommentReferenceToProduct comment:references
+rake db:migrate
